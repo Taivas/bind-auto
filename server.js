@@ -1,11 +1,15 @@
+'use strict';
 
-var fs = require('fs');
-var express = require('express');
-var app = express();
-var config = require('./config.js');
+let fs = require('fs');
+let express = require('express');
+let app = express();
+let config = require('./config.js');
 
+let zone = JSON.parse(fs.readFileSync(config.zonefile));
 console.log(config.port);
 
+app.post();
+
 app.listen(config.port, () => {
-    console.log('Server started: http://localhost:' + config.port + '/');
+    console.log('Server started: http://:' + config.port + '/');
 });
