@@ -1,0 +1,7 @@
+bind:
+  build: .
+  ports:
+    - "53:53/udp"
+  volumes:
+    - ./config:/config
+  restart: always
