@@ -4,14 +4,21 @@ set -e
 BIND_DATA_DIR=${CONFIG_DIR}
 
 create_bind_data_dir() {
+  echo "CREATE BIND DATA DIR"
   mkdir -p ${BIND_DATA_DIR}
   chmod -R 0777 ${BIND_DATA_DIR}
   chown -R root:${BIND_USER} ${BIND_DATA_DIR}
+  ls -al /etc/bind
 
   # populate default bind configuration if it does not exist
-  if [ ! -d ${BIND_DATA_DIR}/etc ]; then
+  if [ -d ${BIND_DATA_DIR}/etc ]; then
+      if [ ! -f ${BIND_DATA_DIR}/etc/rndc.key ]; then
+          mv /etc/bind/rndc.key ${BIND_DATA_DIR}/etc/
+      fi
+  else
     mv /etc/bind ${BIND_DATA_DIR}/etc
   fi
+
   rm -rf /etc/bind
   ln -sf ${BIND_DATA_DIR}/etc /etc/bind
 
