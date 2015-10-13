@@ -1,8 +1,8 @@
 {
-    "$origin": "dns.crvv.me.",
+    "$origin": "zone.crvv.me.",
     "$ttl": 60,
     "soa": {
-        "mname": "ns1.dns.crvv.me.",
+        "mname": "dns.crvv.me.",
         "rname": "hostmaster.dns.crvv.me.",
         "serial": "{time}",
         "refresh": 3600,
@@ -11,10 +11,12 @@
         "minimum": 86400
     },
     "ns": [
-        { "host": "ns1.dns.crvv.me." }
+        { "host": "dns.crvv.me." }
     ],
     "a": [
-        { "name": "@", "ip": "127.0.0.1" },
-        { "name": "ns1", "ip": "127.0.0.1" }
+        { "name": "test-a", "ip": "127.0.0.23" }
+    ],
+    "cname":[
+        { "name": "test-cname", "alias": "crvv.me." }
     ]
 }
