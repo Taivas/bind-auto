@@ -37,5 +37,6 @@ function handle(host) {
 
 function genConfigAndReloadBind() {
     require('child_process').execFileSync('./reloadZoneFile.sh');
+    fs.writeFileSync(config.zonejsonfile, JSON.stringify(zone));
 }
 
