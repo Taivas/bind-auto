@@ -36,6 +36,7 @@ if [ "$1" = 'named' ]; then
   echo "Starting named..."
   cd ${MAIN_DIR}
   node server.js &
+  zonefile -g zonefile.json > config/lib/zone
   exec "$@" -u ${BIND_USER} -g
 else
   exec "$@"
