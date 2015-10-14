@@ -5,6 +5,7 @@ send();
 
 function send() {
     let data = {
+        ip: require('ip').address(),
         name: process.argv[3],
         action: process.argv[2]
     };

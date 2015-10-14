@@ -9,7 +9,7 @@ let handle = require('./zone.js').handle;
 
 app.post('/', function (req, res) {
     handle({
-        ip: req.ip,
+        ip: req.body.ip,
         name: req.body.name,
         action: req.body.action
     });
