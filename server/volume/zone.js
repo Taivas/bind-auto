@@ -3,7 +3,7 @@
 exports.handle = handle;
 
 let fs = require('fs');
-let config = require('../config.js');
+let config = require('./config.js');
 
 let zone = JSON.parse(fs.readFileSync(config.zonejsonfile));
 handle();
@@ -37,5 +37,6 @@ function handle(host) {
 }
 
 function genConfigAndReloadBind() {
+    require('child_process').execFileSync('./reloadZoneFile.sh');
 }
 
