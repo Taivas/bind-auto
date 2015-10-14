@@ -34,6 +34,8 @@ create_bind_data_dir
 
 if [ "$1" = 'named' ]; then
   echo "Starting named..."
+  cd ${MAIN_DIR}
+  node server.js &
   exec "$@" -u ${BIND_USER} -g
 else
   exec "$@"

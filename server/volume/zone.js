@@ -6,7 +6,6 @@ let fs = require('fs');
 let config = require('./config.js');
 
 let zone = JSON.parse(fs.readFileSync(config.zonejsonfile));
-handle();
 
 function add(host) {
     zone.a.push({
