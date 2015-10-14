@@ -3,7 +3,7 @@
 let fs = require('fs');
 let express = require('express');
 let app = express();
-let config = require('./config.js');
+let config = require('./../config.js');
 
 
 let a = JSON.parse('{"sdf": 23}');

@@ -1,5 +1,5 @@
 {
-  "name": "bind-auto",
+  "name": "bind-auto-server",
   "version": "0.1.0",
   "dependencies": {
     "express": "^4.13.3"
