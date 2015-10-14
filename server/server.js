@@ -1,20 +1,23 @@
 'use strict';
 
-let fs = require('fs');
 let express = require('express');
+let bodyParser = require('body-parser');
 let app = express();
-let config = require('./../config.js');
-
-
-let a = JSON.parse('{"sdf": 23}');
-
-let zone = JSON.parse(fs.readFileSync(config.zonefile));
-console.log(zone);
+app.use(bodyParser.json());
+let config = require('../config.js');
+let handle = require('./zone.js').handle;
 
 app.post('/', function (req, res) {
-    console.log(req);
+    handle({
+        ip: req.ip,
+        name: req.body.name,
+        action: req.body.action
+    });
+    res.end();
 });
 
 app.listen(config.port, () => {
     console.log('Server started: http://:' + config.port + '/');
 });
+
+

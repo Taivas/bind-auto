@@ -1,2 +1,2 @@
-exports.port = 98246;
-exports.zonefile = './bind/zonefile.json';
+exports.port = 53462;
+exports.zonejsonfile = './bind/zonefile.json';
