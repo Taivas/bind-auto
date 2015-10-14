@@ -4,7 +4,7 @@ let express = require('express');
 let bodyParser = require('body-parser');
 let app = express();
 app.use(bodyParser.json());
-let config = require('../config.js');
+let config = require('./config.js');
 let handle = require('./zone.js').handle;
 
 app.post('/', function (req, res) {

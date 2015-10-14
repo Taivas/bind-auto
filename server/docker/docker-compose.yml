@@ -4,5 +4,5 @@ bind:
     - "53:53/udp"
     - "53462:53462/tcp"
   volumes:
-    - ./config:/config
+    - ../volume:/dns
   restart: always

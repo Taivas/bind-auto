@@ -1,6 +1,6 @@
 FROM node:4
 
-ENV CONFIG_DIR=/config
+ENV MAIN_DIR=/dns
 ENV BIND_USER=bind
 
 RUN apt-get update
@@ -10,7 +10,7 @@ RUN npm install -g dns-zonefile
 COPY entrypoint.sh /entrypoint.sh
 
 EXPOSE 53/udp
-VOLUME ["${CONFIG_DIR}"]
+VOLUME ["${MAIN_DIR}"]
 ENTRYPOINT ["/entrypoint.sh"]
 CMD ["named"]
 

@@ -1,32 +1,27 @@
 #!/bin/bash
 set -e
 
-BIND_DATA_DIR=${CONFIG_DIR}
+BIND_CONFIG_DIR=${MAIN_DIR}/config
 
 create_bind_data_dir() {
   echo "CREATE BIND DATA DIR"
-  mkdir -p ${BIND_DATA_DIR}
-  chmod -R 0755 ${BIND_DATA_DIR}
-  chown -R root:${BIND_USER} ${BIND_DATA_DIR}
+  chown -R root:${BIND_USER} ${MAIN_DIR}
 
-  # populate default bind configuration if it does not exist
-  if [ -d ${BIND_DATA_DIR}/etc ]; then
-      if [ ! -f ${BIND_DATA_DIR}/etc/rndc.key ]; then
-          mv /etc/bind/rndc.key ${BIND_DATA_DIR}/etc/
-      fi
+  if [ -d ${BIND_CONFIG_DIR} ]; then
+      mv /etc/bind/rndc.key ${BIND_CONFIG_DIR}/etc/
   else
-    mv /etc/bind ${BIND_DATA_DIR}/etc
+      exit 1
   fi
 
   rm -rf /etc/bind
-  ln -sf ${BIND_DATA_DIR}/etc /etc/bind
+  ln -sf ${BIND_CONFIG_DIR}/etc /etc/bind
 
-  if [ ! -d ${BIND_DATA_DIR}/lib ]; then
-    mkdir -p ${BIND_DATA_DIR}/lib
-    chown root:${BIND_USER} ${BIND_DATA_DIR}/lib
+  if [ ! -d ${BIND_CONFIG_DIR}/lib ]; then
+    mkdir -p ${BIND_CONFIG_DIR}/lib
+    chown root:${BIND_USER} ${BIND_CONFIG_DIR}/lib
   fi
   rm -rf /var/lib/bind
-  ln -sf ${BIND_DATA_DIR}/lib /var/lib/bind
+  ln -sf ${BIND_CONFIG_DIR}/lib /var/lib/bind
 }
 
 create_pid_dir() {

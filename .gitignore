@@ -1,5 +1,5 @@
 .idea
 node_modules
 
-config/etc/rndc.key
+rndc.key
 
