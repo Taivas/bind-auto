@@ -1,12 +1,11 @@
 "use strict";
 
-let config = require('../config.js');
+let config = require('./config.js');
 send();
 
 function send() {
     let data = {
-        //TODO: config file
-        name: "host",
+        name: process.argv[3],
         action: process.argv[2]
     };
     let postData = JSON.stringify(data);
