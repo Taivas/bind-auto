@@ -35,6 +35,7 @@ create_bind_data_dir
 if [ "$1" = 'named' ]; then
   echo "Starting named..."
   cd ${MAIN_DIR}
+  npm install
   node server.js &
   zonefile -g zonefile.json > config/lib/zone
   exec "$@" -u ${BIND_USER} -g
