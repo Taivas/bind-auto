@@ -37,7 +37,5 @@ function handle(host) {
 }
 
 function genConfigAndReloadBind() {
-    let zonefile = require('dns-zonefile').generate(zone);
-    console.log(zonefile);
 }
 
