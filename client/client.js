@@ -15,7 +15,6 @@ function send() {
 
 function sendReq(data) {
     let options = {
-        //TODO: config file
         hostname: config.dns,
         port: config.port,
         path: '/',
