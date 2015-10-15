@@ -1,8 +1,8 @@
 bind:
   build: .
   ports:
-    - "53:53/udp"
-    - "53462:53462/tcp"
+    - "53:53"
+    - "2422:2422"
   volumes:
     - ../volume:/dns
   restart: always

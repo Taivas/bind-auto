@@ -2,6 +2,7 @@
   "name": "bind-auto-client",
   "version": "0.1.0",
   "dependencies": {
-    "ip": "^1.0.1"
+    "ip": "^1.0.1",
+    "socks5-http-client": "^1.0.1"
   }
 }

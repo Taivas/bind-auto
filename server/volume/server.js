@@ -13,6 +13,7 @@ app.post('/', function (req, res) {
         name: req.body.name,
         action: req.body.action
     });
+    res.write('done');
     res.end();
 });
 

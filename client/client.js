@@ -1,6 +1,7 @@
 "use strict";
 
 let config = require('./config.js');
+//setTimeout(send, 500);
 send();
 
 function send() {
@@ -12,7 +13,6 @@ function send() {
     let postData = JSON.stringify(data);
     sendReq(postData);
 }
-
 function sendReq(data) {
     let options = {
         hostname: config.server,
@@ -24,7 +24,7 @@ function sendReq(data) {
             'Content-Length': data.length
         }
     };
-    let req = require('http').request(options, (res) => {
+    let req = require('socks5-http-client').request(options, (res) => {
     });
 
     req.on('error', function (e) {

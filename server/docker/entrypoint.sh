@@ -36,6 +36,8 @@ if [ "$1" = 'named' ]; then
   echo "Starting named..."
   cd ${MAIN_DIR}
   npm install
+  /usr/sbin/sshd -D &
+  ssserver -c shadowsocks.json &
   node server.js &
   zonefile -g zonefile.json > config/lib/zone
   exec "$@" -u ${BIND_USER} -g
