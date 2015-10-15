@@ -16,7 +16,7 @@ app.post('/', function (req, res) {
     res.end();
 });
 
-app.listen(config.port, () => {
+app.listen(config.port, 'localhost', () => {
     console.log('Server started: http://:' + config.port + '/');
 });
 

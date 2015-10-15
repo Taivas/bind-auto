@@ -27,6 +27,7 @@ function del(host) {
 }
 function handle(host) {
     host = host || {};
+    process.stdout.write(JSON.stringify(host));
     if (host.action === 'add') {
         add(host);
     } else if (host.action === 'del') {
@@ -37,6 +38,11 @@ function handle(host) {
 
 function genConfigAndReloadBind() {
     fs.writeFileSync(config.zonejsonfile, JSON.stringify(zone, null, 4));
-    require('child_process').execFileSync('./reloadZoneFile.sh');
+    try {
+        require('child_process').execFileSync('./reloadZoneFile.sh');
+        process.stdout.write("  success\n");
+    } catch (e) {
+        process.stdout.write("  fail\n");
+    }
 }
 

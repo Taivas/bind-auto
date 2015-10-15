@@ -15,7 +15,7 @@ function send() {
 
 function sendReq(data) {
     let options = {
-        hostname: config.dns,
+        hostname: config.server,
         port: config.port,
         path: '/',
         method: 'POST',
