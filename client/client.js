@@ -1,14 +1,19 @@
 "use strict";
 
 let config = require('./config.js');
+
+let requestName = process.argv[4];
+let action = process.argv[3];
+let port = process.argv[2];
+
 //setTimeout(send, 500);
 send();
 
 function send() {
     let data = {
         ip: require('ip').address(),
-        name: process.argv[3],
-        action: process.argv[2]
+        name: requestName,
+        action: action
     };
     let postData = JSON.stringify(data);
     sendReq(postData);
@@ -16,7 +21,7 @@ function send() {
 function sendReq(data) {
     let options = {
         hostname: 'localhost',
-        port: config.port,
+        port: port,
         path: '/',
         method: 'POST',
         headers: {
