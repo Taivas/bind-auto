@@ -15,7 +15,7 @@ function send() {
 }
 function sendReq(data) {
     let options = {
-        hostname: config.server,
+        hostname: 'localhost',
         port: config.port,
         path: '/',
         method: 'POST',
@@ -24,7 +24,7 @@ function sendReq(data) {
             'Content-Length': data.length
         }
     };
-    let req = require('socks5-http-client').request(options, (res) => {
+    let req = require('http').request(options, (res) => {
     });
 
     req.on('error', function (e) {

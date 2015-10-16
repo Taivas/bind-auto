@@ -1,7 +1,7 @@
 bind:
   build: .
   ports:
-    - "53:53"
+    - "53:53/udp"
     - "2422:2422"
   volumes:
     - ../volume:/dns
